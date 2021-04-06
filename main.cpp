@@ -1,11 +1,11 @@
-#include "signup.h"
+#include "TestGuru.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    SignUp w;
+    TestGuru w;
     w.show();
     return a.exec();
 }

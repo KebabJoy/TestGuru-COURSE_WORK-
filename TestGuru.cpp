@@ -1,21 +1,19 @@
-#include "signup.h"
-#include "ui_signup.h"
+#include "TestGuru.h"
+#include "ui_TestGuru.h"
 
-SignUp::SignUp(QWidget *parent)
+TestGuru::TestGuru(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::SignUp)
+    , ui(new Ui::TestGuru)
 {
     ui->setupUi(this);
 
     QSqlDatabase mydb=QSqlDatabase::addDatabase("QSQLITE");
     mydb.setDatabaseName("/home/kebabjoy/TestGuru/development.sqlite3");
     if(!mydb.open())
-        ui->label->setText("Db is not connected");
-    else
-        ui->label->setText("Db is connected");
+        qDebug() << "DB is not connected";
 }
 
-SignUp::~SignUp()
+TestGuru::~TestGuru()
 {
     delete ui;
 }

@@ -9,14 +9,14 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    main.cpp \
-    signup.cpp
+    TestGuru.cpp \
+    main.cpp
 
 HEADERS += \
-    signup.h
+    TestGuru.h
 
 FORMS += \
-    signup.ui
+    TestGuru.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
