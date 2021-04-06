@@ -17,6 +17,10 @@ class TestGuru : public QMainWindow
 public:
     TestGuru(QWidget *parent = nullptr);
     ~TestGuru();
+    QSqlDatabase mydb;
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::TestGuru *ui;
