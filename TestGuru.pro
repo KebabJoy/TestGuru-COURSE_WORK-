@@ -10,10 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     TestGuru.cpp \
-    main.cpp
+    main.cpp \
+    qdynamicbutton.cpp
 
 HEADERS += \
-    TestGuru.h
+    TestGuru.h \
+    qdynamicbutton.h
 
 FORMS += \
     TestGuru.ui

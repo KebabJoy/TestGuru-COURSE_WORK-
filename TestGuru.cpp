@@ -15,6 +15,7 @@ TestGuru::TestGuru(QWidget *parent)
     ui->passBox->setEchoMode(QLineEdit::Password);
     ui->passConfBox->setEchoMode(QLineEdit::Password);
     ui->signinPass->setEchoMode(QLineEdit::Password);
+
     QSqlQuery test(mydb);
     test.prepare("SELECT * FROM USERS WHERE email = :em");
     test.bindValue(":em","maximka@mail.ru");
@@ -100,5 +101,10 @@ void TestGuru::on_pushButton_6_clicked()
     }else{
         ui->signinStatus->setText("User doen't exist");
     }
+
+}
+
+void TestGuru::on_stackedWidget_currentChanged(int arg1)
+{
 
 }

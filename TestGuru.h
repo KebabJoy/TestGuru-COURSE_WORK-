@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QFileInfo>
 
+#include "qdynamicbutton.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class TestGuru; }
 QT_END_NAMESPACE
@@ -27,6 +29,8 @@ private slots:
     void on_pushButton_5_clicked();
 
     void on_pushButton_6_clicked();
+
+    void on_stackedWidget_currentChanged(int arg1);
 
 private:
     int rank;
