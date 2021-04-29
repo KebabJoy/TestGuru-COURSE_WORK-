@@ -5,6 +5,7 @@
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
+#include <QGridLayout>
 
 #include "qdynamicbutton.h"
 
@@ -30,7 +31,9 @@ private slots:
 
     void on_pushButton_6_clicked();
 
-    void on_stackedWidget_currentChanged(int arg1);
+    void jump_to_test();
+
+    void on_showTests_clicked();
 
 private:
     int rank;

@@ -8,7 +8,7 @@ TestGuru::TestGuru(QWidget *parent)
     ui->setupUi(this);
 
     mydb=QSqlDatabase::addDatabase("QSQLITE");
-    mydb.setDatabaseName("/home/kebabjoy/TestGuru/development.sqlite3");
+    mydb.setDatabaseName("/home/kebabjoy/Документы/КУРСАЧ/TestGuru/development.sqlite3");
     if(!mydb.open())
         qDebug() << "DB is not connected";
 
@@ -104,7 +104,31 @@ void TestGuru::on_pushButton_6_clicked()
 
 }
 
-void TestGuru::on_stackedWidget_currentChanged(int arg1)
+
+void TestGuru::on_showTests_clicked()
 {
 
+    QSqlQuery tests(mydb);
+    tests.exec("SELECT * FROM TESTS");
+
+    QGridLayout *lay = new QGridLayout;
+    while(tests.next()){
+        QString str = tests.value(1).toString();
+        qDebug() << "lol";
+
+
+        QDynamicButton *button = new QDynamicButton(this);
+        button->setText(str);
+        connect(button, SIGNAL(clicked()), this, SLOT(jump_to_test()));
+        lay->addWidget(button);
+
+    }
+    ui->scrollArea->setLayout(lay);
+}
+
+void TestGuru::jump_to_test(){
+    QDynamicButton *button = (QDynamicButton*) sender();
+
+
+    ui->Layout->setCurrentIndex(3);
 }
