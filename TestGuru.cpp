@@ -114,10 +114,9 @@ void TestGuru::on_showTests_clicked()
     QGridLayout *lay = new QGridLayout;
     while(tests.next()){
         QString str = tests.value(1).toString();
-        qDebug() << "lol";
 
 
-        QDynamicButton *button = new QDynamicButton(this);
+        TestButton *button = new TestButton(this, tests.value(0).toInt());
         button->setText(str);
         connect(button, SIGNAL(clicked()), this, SLOT(jump_to_test()));
         lay->addWidget(button);
@@ -127,8 +126,40 @@ void TestGuru::on_showTests_clicked()
 }
 
 void TestGuru::jump_to_test(){
-    QDynamicButton *button = (QDynamicButton*) sender();
+    TestButton *button = (TestButton*) sender();
 
 
     ui->Layout->setCurrentIndex(3);
+    TestGuru::render_questions(button);
+}
+
+
+void TestGuru::render_questions(TestButton *button){
+    QSqlQuery questions(mydb);
+    questions.prepare("SELECT * FROM QUESTIONS where test_id = (:ti)");
+    questions.bindValue(":ti", button->getTestID());
+    questions.exec();
+
+
+    QGridLayout *lay = new QGridLayout;
+    while(questions.next()){
+        QString str = questions.value(1).toString();
+        qDebug() << "lol";
+
+        TestButton *button = new TestButton(this);
+        button->setText(str);
+        connect(button, SIGNAL(clicked()), this, SLOT(jump_to_test()));
+        lay->addWidget(button);
+    }
+     ui->questions->setLayout(lay);
+}
+
+void TestGuru::on_back_clicked()
+{
+    if(QMessageBox::Yes == QMessageBox(QMessageBox::Question,
+                                           "Test Guru", "Are you sure you want move back to all questions?"\
+                                           "\nThis action will erase your progress",
+                                           QMessageBox::Yes|QMessageBox::No).exec()){
+        ui->Layout->setCurrentIndex(2);
+    }
 }

@@ -6,8 +6,10 @@
 #include <QDebug>
 #include <QFileInfo>
 #include <QGridLayout>
+#include <QMessageBox>
 
-#include "qdynamicbutton.h"
+
+#include "TestButton.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class TestGuru; }
@@ -34,6 +36,12 @@ private slots:
     void jump_to_test();
 
     void on_showTests_clicked();
+
+    void render_questions(TestButton *button);
+
+
+
+    void on_back_clicked();
 
 private:
     int rank;

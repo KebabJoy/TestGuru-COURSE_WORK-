@@ -472,44 +472,92 @@ Color: #fefefe;</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="ksajfksaljf_3">
+      <widget class="QFrame" name="frame_6">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>140</y>
+         <width>711</width>
+         <height>361</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: grey;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QTableView" name="questions">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>711</width>
+          <height>361</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>40</x>
          <y>40</y>
-         <width>461</width>
-         <height>61</height>
+         <width>355</width>
+         <height>51</height>
         </rect>
        </property>
-       <property name="styleSheet">
-        <string notr="true">text-align: center;
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="question_title">
+          <property name="styleSheet">
+           <string notr="true">text-align: center;
 color: #393;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
-       </property>
-       <property name="text">
-        <string>Welcome to TestGuru,</string>
-       </property>
+          </property>
+          <property name="text">
+           <string>Question:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="question_number">
+          <property name="styleSheet">
+           <string notr="true">text-align: center;
+color: #393;
+margin: 0 auto;
+font-size: 35px;
+font-family: 'Droid Sans';</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
-      <widget class="QLabel" name="welcome_3">
+      <widget class="QPushButton" name="back">
        <property name="geometry">
         <rect>
-         <x>440</x>
-         <y>40</y>
-         <width>281</width>
-         <height>61</height>
+         <x>570</x>
+         <y>50</y>
+         <width>181</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">text-align: center;
-color: #393;
-margin: 0 auto;
-font-size: 35px;
-font-family: 'Droid Sans';</string>
+        <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #cc0000;
+Color: #fefefe;</string>
        </property>
        <property name="text">
-        <string/>
+        <string>Назад к тестам</string>
        </property>
       </widget>
      </widget>
