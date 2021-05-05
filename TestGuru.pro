@@ -11,12 +11,14 @@ CONFIG += c++17
 SOURCES += \
     TestButton.cpp \
     TestGuru.cpp \
+    answer.cpp \
     main.cpp \
     question.cpp
 
 HEADERS += \
     TestButton.h \
     TestGuru.h \
+    answer.h \
     question.h
 
 FORMS += \

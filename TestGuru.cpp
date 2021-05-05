@@ -16,6 +16,7 @@ TestGuru::TestGuru(QWidget *parent)
     ui->passConfBox->setEchoMode(QLineEdit::Password);
     ui->signinPass->setEchoMode(QLineEdit::Password);
 
+    answer_lay = new QGridLayout;
     QSqlQuery test(mydb);
     test.prepare("SELECT * FROM USERS WHERE email = :em");
     test.bindValue(":em","maximka@mail.ru");
@@ -116,10 +117,10 @@ void TestGuru::on_showTests_clicked()
         QString str = tests.value(1).toString();
 
 
-        TestButton *button = new TestButton(this, tests.value(0).toInt());
-        button->setText(str);
-        connect(button, SIGNAL(clicked()), this, SLOT(jump_to_test()));
-        lay->addWidget(button);
+        TestButton *test_button = new TestButton(this, tests.value(0).toInt());
+        test_button->setText(str);
+        connect(test_button, SIGNAL(clicked()), this, SLOT(jump_to_test()));
+        lay->addWidget(test_button);
 
     }
     ui->scrollArea->setLayout(lay);
@@ -129,30 +130,65 @@ void TestGuru::jump_to_test(){
     TestButton *button = (TestButton*) sender();
 
 
-    ui->Layout->setCurrentIndex(3);
-    TestGuru::render_questions(button);
+
+    get_questions(button);
 }
 
 
-void TestGuru::render_questions(TestButton *button){
+void TestGuru::get_questions(TestButton *button){
     QSqlQuery questions(mydb);
     questions.prepare("SELECT * FROM QUESTIONS where test_id = (:ti)");
     questions.bindValue(":ti", button->getTestID());
     questions.exec();
+    current_question = questions;
 
-
-    QGridLayout *lay = new QGridLayout;
-    while(questions.next()){
-        QString str = questions.value(1).toString();
-        qDebug() << "lol";
-
-        TestButton *button = new TestButton(this);
-        button->setText(str);
-        connect(button, SIGNAL(clicked()), this, SLOT(jump_to_test()));
-        lay->addWidget(button);
+    if(current_question.next()){
+        render_answers();
+        ui->Layout->setCurrentIndex(3);
     }
-     ui->questions->setLayout(lay);
+    else{
+        QMessageBox msgBox;
+        msgBox.setText("The test is not finished. Please try to pass other.");
+        msgBox.setIcon(QMessageBox::Information);
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        msgBox.exec();
+    }
 }
+
+void clearLayout(QLayout *layout) {
+    QLayoutItem *item;
+    while((item = layout->takeAt(0))) {
+        if (item->layout()) {
+            clearLayout(item->layout());
+            delete item->layout();
+        }
+        if (item->widget()) {
+           delete item->widget();
+        }
+        delete item;
+    }
+}
+
+void TestGuru::render_answers(){
+
+    QSqlQuery answers(mydb);
+    answers.prepare("SELECT * FROM ANSWERS where question_id = (:qid)");
+    answers.bindValue(":qid", current_question.value(0).toInt());
+    answers.exec();
+    ui->question_title->setText(current_question.value(1).toString());
+
+    while(answers.next()){
+        QString ans_body = answers.value(1).toString();
+        qDebug() << "lol";
+        Answer *ans = new Answer(this, answers.value(0).toInt());
+        ans->setText(ans_body);
+        answer_lay->addWidget(ans);
+    }
+    ui->answers->setLayout(answer_lay);
+
+}
+
+
 
 void TestGuru::on_back_clicked()
 {
@@ -160,6 +196,99 @@ void TestGuru::on_back_clicked()
                                            "Test Guru", "Are you sure you want move back to all questions?"\
                                            "\nThis action will erase your progress",
                                            QMessageBox::Yes|QMessageBox::No).exec()){
+        clearLayout(answer_lay);
         ui->Layout->setCurrentIndex(2);
     }
 }
+
+void TestGuru::on_next_ans_clicked()
+{
+    if(current_question.next()){
+        render_answers();
+    }else{
+        clearLayout(answer_lay);
+        ui->Layout->setCurrentIndex(4);
+    }
+}
+
+void TestGuru::on_back_2_clicked()
+{
+    clearLayout(answer_lay);
+    ui->Layout->setCurrentIndex(2);
+}
+
+void TestGuru::on_show_tests_clicked()
+{
+    QSqlQuery tests(mydb);
+    tests.exec("SELECT * FROM TESTS");
+
+    QGridLayout *lay = new QGridLayout;
+    while(tests.next()){
+        QString str = tests.value(1).toString();
+
+
+        TestButton *test_button = new TestButton(this, tests.value(0).toInt(), tests.value(1).toString());
+        test_button->setText(str);
+        connect(test_button, SIGNAL(clicked()), this, SLOT(jump_to_edit_test_path()));
+        lay->addWidget(test_button);
+
+    }
+    ui->admin_tests_list->setLayout(lay);
+}
+
+void TestGuru::jump_to_edit_test_path(){
+    TestButton *button = (TestButton*) sender();
+
+    edit_test_path(button);
+    ui->Layout->setCurrentIndex(6);
+}
+
+void TestGuru::edit_test_path(TestButton *test){
+    ui->test_name->setText(test->getTestTitle());
+
+    QSqlQuery questions(mydb);
+    questions.prepare("SELECT * FROM QUESTIONS where test_id = (:tid)");
+    questions.bindValue(":tid", test->getTestID());
+    questions.exec();
+
+    QGridLayout *lay = new QGridLayout;
+    while(questions.next()){
+        QString str = questions.value(1).toString();
+
+        Question *question_button = new Question(this, questions.value(0).toInt());
+        question_button->setText(str);
+
+        connect(question_button, SIGNAL(clicked()), this, SLOT(jump_to_edit_question_path()));
+
+        lay->addWidget(question_button);
+    }
+    connect(test, SIGNAL(clicked()), this, SLOT(delete_test()));
+    test->setText("Delete " + test->getTestTitle());
+    test->setStyleSheet("Padding: 1px;Border-radius: 5px;Background: #cc0000;Color: #fefefe;");
+    ui->delete_test_layout->addWidget(test);
+
+    ui->admin_answers->setLayout(lay);
+}
+
+void TestGuru::jump_to_edit_question_path(){
+    Question *button = (Question*) sender();
+
+
+}
+
+void TestGuru::on_admin_panel_clicked()
+{
+    ui->Layout->setCurrentIndex(5);
+}
+
+void TestGuru::delete_test(){
+
+    if(QMessageBox::Yes == QMessageBox(QMessageBox::Question,
+                                           "Test Guru", "Do you want to delete this test?"\
+                                           "\nThis action will delete all questions and answers connected to it.",
+                                           QMessageBox::Yes|QMessageBox::No).exec()){
+
+    }
+}
+
+
