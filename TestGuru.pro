@@ -13,13 +13,17 @@ SOURCES += \
     TestGuru.cpp \
     answer.cpp \
     main.cpp \
-    question.cpp
+    question.cpp \
+    testpassage.cpp \
+    user.cpp
 
 HEADERS += \
     TestButton.h \
     TestGuru.h \
     answer.h \
-    question.h
+    question.h \
+    testpassage.h \
+    user.h
 
 FORMS += \
     TestGuru.ui

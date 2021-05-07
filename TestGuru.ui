@@ -419,6 +419,9 @@ font-family: 'Droid Sans';</string>
            <height>289</height>
           </rect>
          </property>
+         <property name="styleSheet">
+          <string notr="true">background: grey;</string>
+         </property>
          <widget class="QTableView" name="tableView">
           <property name="geometry">
            <rect>
@@ -438,7 +441,7 @@ font-family: 'Droid Sans';</string>
          <x>69</x>
          <y>180</y>
          <width>201</width>
-         <height>131</height>
+         <height>151</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -451,7 +454,20 @@ Background: #393;
 Color: #fefefe;</string>
           </property>
           <property name="text">
-           <string>Show tests</string>
+           <string>Показать все тесты</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="show_passed_tests">
+          <property name="styleSheet">
+           <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #393;
+Color: #fefefe;</string>
+          </property>
+          <property name="text">
+           <string>Показать пройденные тесты</string>
           </property>
          </widget>
         </item>
@@ -464,7 +480,7 @@ Background: #1520A6;
 Color: #fefefe;</string>
           </property>
           <property name="text">
-           <string>Admin Panel</string>
+           <string>Панель Админа</string>
           </property>
          </widget>
         </item>
@@ -539,25 +555,6 @@ Color: #fefefe;</string>
         <string>Назад к тестам</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="next_ans">
-       <property name="geometry">
-        <rect>
-         <x>550</x>
-         <y>520</y>
-         <width>181</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">Padding: 1px;
-Border-radius: 5px;
-Background: green;
-Color: #fefefe;</string>
-       </property>
-       <property name="text">
-        <string>Далее</string>
-       </property>
-      </widget>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
@@ -622,7 +619,7 @@ font-family: 'Droid Sans';</string>
       <widget class="QPushButton" name="back_2">
        <property name="geometry">
         <rect>
-         <x>340</x>
+         <x>330</x>
          <y>520</y>
          <width>181</width>
          <height>31</height>
@@ -636,6 +633,52 @@ Color: #fefefe;</string>
        </property>
        <property name="text">
         <string>Назад к тестам</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="test_finish_header">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>801</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align: center;
+color: #393;
+margin: 0 auto;
+font-size: 35px;
+font-family: 'Droid Sans';</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="test_finish_result">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>170</y>
+         <width>771</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align: center;
+color: #393;
+margin: 0 auto;
+font-size: 35px;
+font-family: 'Droid Sans';</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </widget>
@@ -698,6 +741,9 @@ Color: #fefefe;</string>
            <width>489</width>
            <height>289</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: grey;</string>
          </property>
          <widget class="QTableView" name="tableView_2">
           <property name="geometry">
@@ -1195,7 +1241,7 @@ Color: #fefefe;</string>
      </widget>
     </widget>
     <widget class="QWidget" name="page_7">
-     <widget class="QFrame" name="finish_test_background_3">
+     <widget class="QFrame" name="edit_question_background">
       <property name="geometry">
        <rect>
         <x>-10</x>
@@ -1213,13 +1259,13 @@ Color: #fefefe;</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QFrame" name="frame_13">
+      <widget class="QFrame" name="edit_answers_frame">
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>150</y>
+         <y>220</y>
          <width>421</width>
-         <height>321</height>
+         <height>251</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -1237,7 +1283,7 @@ Color: #fefefe;</string>
           <x>0</x>
           <y>0</y>
           <width>421</width>
-          <height>321</height>
+          <height>251</height>
          </rect>
         </property>
        </widget>
@@ -1341,7 +1387,7 @@ Background: #393;
 Color: #fefefe;</string>
        </property>
        <property name="text">
-        <string>Обновить тест</string>
+        <string>Обновить вопрос</string>
        </property>
       </widget>
       <widget class="QLabel" name="edit_question_status">
@@ -1421,6 +1467,330 @@ color: #fefefe;</string>
        </property>
        <property name="placeholderText">
         <string>Новый вопрос</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="edit_question_body">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>130</y>
+         <width>461</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align: center;
+color: #393;
+margin: 0 auto;
+font-size: 15px;
+font-family: 'Droid Sans';</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_8">
+     <widget class="QFrame" name="new_answer_background">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>0</y>
+        <width>811</width>
+        <height>601</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #101010;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="new_answer_header">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>30</y>
+         <width>331</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align: center;
+color: #393;
+margin: 0 auto;
+font-size: 35px;
+font-family: 'Droid Sans';</string>
+       </property>
+       <property name="text">
+        <string>Новый ответ</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="new_answer_status">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>180</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align: center;
+color: #393;
+margin: 0 auto;
+font-size: 15px;
+font-family: 'Droid Sans';</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="new_answer_button">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>370</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">padding-left: 20px;
+padding-right: 20px;
+border-radius: 20px;
+background: #333;
+color: #fefefe;</string>
+       </property>
+       <property name="text">
+        <string>Создать</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="new_answer_body">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>240</y>
+         <width>271</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">padding-left: 20px;
+padding-right: 20px;
+border-radius: 20px;
+background: #333;
+color: #fefefe;</string>
+       </property>
+       <property name="placeholderText">
+        <string>Body</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="new_answer_back">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>500</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #1520A6;
+Color: #fefefe;</string>
+       </property>
+       <property name="text">
+        <string>Назад</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="correct_check">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>300</y>
+         <width>191</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: #333;
+color: #393;
+font-size: 15px;
+font-family: 'Droid Sans';
+border-radius: 15px;
+padding: 10px;
+</string>
+       </property>
+       <property name="text">
+        <string>Правильный?</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_9">
+     <widget class="QFrame" name="edit_answer_background">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>0</y>
+        <width>811</width>
+        <height>601</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #101010;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="edit_answer_header">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>20</y>
+         <width>371</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align: center;
+color: #393;
+margin: 0 auto;
+font-size: 35px;
+font-family: 'Droid Sans';</string>
+       </property>
+       <property name="text">
+        <string>Изменить ответ</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="edit_answer_status">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>180</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align: center;
+color: #393;
+margin: 0 auto;
+font-size: 15px;
+font-family: 'Droid Sans';</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="edit_answer_submit">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>330</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">padding-left: 20px;
+padding-right: 20px;
+border-radius: 20px;
+background: #333;
+color: #fefefe;</string>
+       </property>
+       <property name="text">
+        <string>Обновить</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="edit_answer_body">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>240</y>
+         <width>271</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">padding-left: 20px;
+padding-right: 20px;
+border-radius: 20px;
+background: #333;
+color: #fefefe;</string>
+       </property>
+       <property name="placeholderText">
+        <string>Body</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="edit_answer_back">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>500</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #1520A6;
+Color: #fefefe;</string>
+       </property>
+       <property name="text">
+        <string>Назад</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="edit_answer_name">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>20</y>
+         <width>371</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align: center;
+color: #393;
+margin: 0 auto;
+font-size: 35px;
+font-family: 'Droid Sans';</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="edit_answer_delete">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>500</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #cc0000;
+Color: #fefefe;</string>
+       </property>
+       <property name="text">
+        <string>Удалить ответ</string>
        </property>
       </widget>
      </widget>

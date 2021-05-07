@@ -12,6 +12,8 @@
 #include "TestButton.h"
 #include "answer.h"
 #include "question.h"
+#include "testpassage.h"
+#include "user.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class TestGuru; }
@@ -45,8 +47,6 @@ private slots:
 
     void on_back_clicked();
 
-    void on_next_ans_clicked();
-
     void on_back_2_clicked();
 
     void on_show_tests_clicked();
@@ -77,6 +77,36 @@ private slots:
 
     void on_new_test_clicked();
 
+    void render_question_answers();
+
+    void on_edit_question_back_clicked();
+
+    void on_update_question_clicked();
+
+    void on_new_answer_back_clicked();
+
+    void on_new_answer_button_clicked();
+
+    void on_add_answer_clicked();
+
+    void jump_to_edit_answer_path();
+
+    void on_edit_answer_back_clicked();
+
+    void on_edit_answer_submit_clicked();
+
+    void on_edit_answer_delete_clicked();
+
+    void delete_question();
+
+    void next_question();
+
+    void start_test_passage();
+
+    void assert_correctness();
+
+    void on_show_passed_tests_clicked();
+
 private:
     QGridLayout *answer_lay;
     QGridLayout *tests_lay;
@@ -84,9 +114,9 @@ private:
     QSqlQuery current_question_query;
     TestButton *current_test;
     Question *current_question;
-    int rank;
-    QString email;
-    QString passwd;
+    Answer *current_answer;
+    TestPassage *current_passage;
+    User *current_user;
     Ui::TestGuru *ui;
 };
 #endif // TESTGURU_H
