@@ -1,7 +1,7 @@
 #include "answer.h"
 
 Answer::Answer(QWidget *parent, int aid)
-   : QCheckBox(parent)
+   : QPushButton(parent)
 {
     answer_id = aid;
 }

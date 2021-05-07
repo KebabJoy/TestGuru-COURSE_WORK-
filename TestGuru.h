@@ -53,7 +53,7 @@ private slots:
 
     void jump_to_edit_test_path();
 
-    void edit_test_path(TestButton *test);
+    void edit_test_path();
 
     void on_admin_panel_clicked();
 
@@ -61,9 +61,29 @@ private slots:
 
     void delete_test();
 
+    void on_add_question_clicked();
+
+    void on_update_test_clicked();
+
+    void on_edit_test_back_clicked();
+
+    void on_back_to_user_panel_clicked();
+
+    void on_new_question_button_clicked();
+
+    void on_new_question_back_clicked();
+
+    void render_questions();
+
+    void on_new_test_clicked();
+
 private:
     QGridLayout *answer_lay;
-    QSqlQuery current_question;
+    QGridLayout *tests_lay;
+    QGridLayout *questions_lay;
+    QSqlQuery current_question_query;
+    TestButton *current_test;
+    Question *current_question;
     int rank;
     QString email;
     QString passwd;

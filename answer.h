@@ -1,9 +1,9 @@
 #ifndef ANSWER_H
 #define ANSWER_H
-#include <QCheckBox>
+#include <QPushButton>
 
 
-class Answer : public QCheckBox
+class Answer : public QPushButton
 {
     Q_OBJECT
 public:
