@@ -8,8 +8,8 @@ TestGuru::TestGuru(QWidget *parent)
     ui->setupUi(this);
 
     mydb=QSqlDatabase::addDatabase("QSQLITE");
-
-    mydb.setDatabaseName("/home/kebabjoy/Документы/КУРСАЧ/TestGuru/development.sqlite3");
+    qDebug() << QCoreApplication::applicationDirPath();
+    mydb.setDatabaseName(QCoreApplication::applicationDirPath() + "/development.sqlite3");
     if(!mydb.open())
         qDebug() << "DB is not connected";
     mydb.exec("PRAGMA foreign_keys = ON");
@@ -89,6 +89,9 @@ void TestGuru::on_pushButton_6_clicked()
     }
 
     if(exists){
+        if(checkUser.value(3).toInt() == 0){
+            ui->admin_panel->setVisible(false);
+        }
         current_user = new User(checkUser.value(0).toInt(), emaill, checkUser.value(3).toInt());
 
         ui->Layout->setCurrentIndex(2);
