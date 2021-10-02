@@ -1,0 +1,95 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(ARM LANGUAGES CXX)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_PREFIX_PATH "/home/kebabjoy/Qt/")
+set(Qt5_DIR "/home/kebabjoy/Qt/")
+
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+if (NOT build_suffix)
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_CURRENT_SOURCE_DIR}/bin.dbg)
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_CURRENT_SOURCE_DIR}/bin.rel)
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${CMAKE_CURRENT_SOURCE_DIR}/bin.relwithdbg)
+else()
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin.${build_suffix})
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_CURRENT_SOURCE_DIR}/bin.${build_suffix}.dbg)
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_CURRENT_SOURCE_DIR}/bin.${build_suffix}.rel)
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${CMAKE_CURRENT_SOURCE_DIR}/bin.${build_suffix}.relwithdbg)
+endif()
+
+#set global properties
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "cmake")
+
+find_package(QT NAMES Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(QT NAMES Qt5 COMPONENTS Sql REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Sql REQUIRED)
+
+# Look for the header file.
+FIND_PATH(SQLITE3_INCLUDE_DIR NAMES sqlite3.h)
+
+# Look for the library.
+FIND_LIBRARY(SQLITE3_LIBRARY NAMES sqlite)
+
+# Handle the QUIETLY and REQUIRED arguments and set SQLITE3_FOUND to TRUE if all listed variables are TRUE.
+INCLUDE(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(SQLITE3 DEFAULT_MSG SQLITE3_LIBRARY SQLITE3_INCLUDE_DIR)
+
+# Copy the results to the output variables.
+IF(SQLITE3_FOUND)
+        SET(SQLITE3_LIBRARIES ${SQLITE3_LIBRARY})
+        SET(SQLITE3_INCLUDE_DIRS ${SQLITE3_INCLUDE_DIR})
+ELSE(SQLITE3_FOUND)
+        SET(SQLITE3_LIBRARIES)
+        SET(SQLITE3_INCLUDE_DIRS)
+ENDIF(SQLITE3_FOUND)
+
+MARK_AS_ADVANCED(SQLITE3_INCLUDE_DIRS SQLITE3_LIBRARIES)
+
+
+add_executable(TestGuru
+    TestGuru.ui
+    answer.cpp
+    main.cpp
+    question.cpp
+    TestButton.cpp
+    TestGuru.cpp
+    testpassage.cpp
+    user.cpp
+)
+
+#link libraries
+target_link_libraries(ARM PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(ARM PRIVATE Qt${QT_VERSION_MAJOR}::Sql)
+
+#get way to Qt dir
+get_property(QT_CORE_INCLUDE_DIRS TARGET Qt5::Core PROPERTY INTERFACE_INCLUDE_DIRECTORIES)
+list(GET QT_CORE_INCLUDE_DIRS 0 QT_CORE_MAIN_INCLUDE_DIR)
+get_filename_component(QT_MAIN_DIR ${QT_CORE_MAIN_INCLUDE_DIR}/.. ABSOLUTE)
+
+install(TARGETS
+                ARM
+        DESTINATION
+                DESTINATION
+                .
+)
+
+install(FILES $<TARGET_FILE:Qt5::Core> DESTINATION .)
+
+install(FILES $<TARGET_FILE:Qt5::Gui> DESTINATION .)
+
+install(FILES $<TARGET_FILE:Qt5::Widgets> DESTINATION .)
+
+install(FILES $<TARGET_FILE:Qt5::Sql> DESTINATION .)
+
+install(DIRECTORY ${QT_MAIN_DIR}/plugins/platforms/
+        DESTINATION ./platforms USE_SOURCE_PERMISSIONS)
