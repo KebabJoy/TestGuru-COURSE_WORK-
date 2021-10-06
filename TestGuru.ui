@@ -511,7 +511,7 @@ Color: #fefefe;</string>
        <property name="geometry">
         <rect>
          <x>40</x>
-         <y>140</y>
+         <y>200</y>
          <width>711</width>
          <height>361</height>
         </rect>
@@ -555,45 +555,64 @@ Color: #fefefe;</string>
         <string>Назад к тестам</string>
        </property>
       </widget>
-      <widget class="QWidget" name="layoutWidget">
+      <widget class="QLabel" name="question_body">
        <property name="geometry">
         <rect>
-         <x>41</x>
-         <y>41</y>
-         <width>461</width>
-         <height>51</height>
+         <x>40</x>
+         <y>110</y>
+         <width>711</width>
+         <height>71</height>
         </rect>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="ans_title">
-          <property name="styleSheet">
-           <string notr="true">text-align: center;
+       <property name="styleSheet">
+        <string notr="true">text-align: center;
 color: #393;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
-          </property>
-          <property name="text">
-           <string>Question:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="question_title">
-          <property name="styleSheet">
-           <string notr="true">text-align: center;
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="ans_title">
+       <property name="geometry">
+        <rect>
+         <x>42</x>
+         <y>42</y>
+         <width>181</width>
+         <height>49</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align: left;
+color: #393;
+font-size: 35px;
+font-family: 'Droid Sans';</string>
+       </property>
+       <property name="text">
+        <string>Question:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="question_title">
+       <property name="geometry">
+        <rect>
+         <x>221</x>
+         <y>42</y>
+         <width>321</width>
+         <height>48</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align: center;
 color: #393;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
       </widget>
      </widget>
     </widget>

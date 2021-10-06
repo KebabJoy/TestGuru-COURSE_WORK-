@@ -181,6 +181,7 @@ void TestGuru::render_answers(){
     answers.bindValue(":qid", current_question_query.value(0).toInt());
     answers.exec();
     ui->question_title->setText(current_question_query.value(1).toString());
+    ui->question_body->setText(current_question_query.value(3).toString());
 
     while(answers.next()){
         QString ans_body = answers.value(1).toString();
