@@ -33,7 +33,7 @@ set(PROJECT_SOURCES
         answer.h
         user.cpp
         user.h
-        development.sqlite3
+        TestGuru.sqlite3
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
