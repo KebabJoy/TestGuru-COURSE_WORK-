@@ -9,7 +9,7 @@ TestGuru::TestGuru(QWidget *parent)
 
     mydb=QSqlDatabase::addDatabase("QSQLITE");
     qDebug() << QCoreApplication::applicationDirPath();
-    mydb.setDatabaseName(QCoreApplication::applicationDirPath() + "/TestGuru.sqlite3");
+    mydb.setDatabaseName(QCoreApplication::applicationDirPath() + "/development.sqlite3");
     if(!mydb.open())
         qDebug() << "DB is not connected";
     mydb.exec("PRAGMA foreign_keys = ON");

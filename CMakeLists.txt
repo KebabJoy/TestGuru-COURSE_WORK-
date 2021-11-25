@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(TestGuruCMake VERSION 0.1 LANGUAGES CXX)
+project(COURSE_WORK VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -13,10 +13,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
-find_package(Qt6 REQUIRED COMPONENTS Core Quick Sql)
-
-
-
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick Sql)
 
 set(PROJECT_SOURCES
         TestGuru.cpp
@@ -33,40 +30,40 @@ set(PROJECT_SOURCES
         answer.h
         user.cpp
         user.h
-        TestGuru.sqlite3
+        development.sqlite3
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(TestGuruCMake
+    qt_add_executable(COURSE_WORK
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
 # Define target properties for Android with Qt 6 as:
-#    set_property(TARGET TestGuruCMake APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#    set_property(TARGET COURSE_WORK APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(TestGuruCMake SHARED
+        add_library(COURSE_WORK SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(TestGuruCMake
+        add_executable(COURSE_WORK
             ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
-target_link_libraries(TestGuruCMake PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::Sql)
+target_link_libraries(COURSE_WORK PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::Sql)
 
-set_target_properties(TestGuruCMake PROPERTIES
+set_target_properties(COURSE_WORK PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(TestGuruCMake)
+    qt_finalize_executable(COURSE_WORK)
 endif()
