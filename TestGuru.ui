@@ -34,8 +34,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #101010
-;</string>
+       <string notr="true">background: #a0a0a0;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -54,7 +53,7 @@
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -153,7 +152,7 @@ color: #fefefe;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: #393;</string>
+        <string notr="true">color: #101010;</string>
        </property>
        <property name="text">
         <string>Enter your email and pass</string>
@@ -192,7 +191,7 @@ color: #fefefe;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #101010;</string>
+       <string notr="true">background: #a0a0a0;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -211,7 +210,7 @@ color: #fefefe;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -311,7 +310,7 @@ color: #fefefe;
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: #393;
+        <string notr="true">color: #101010;
 </string>
        </property>
        <property name="text">
@@ -331,7 +330,7 @@ color: #fefefe;
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #101010;</string>
+       <string notr="true">background: #a0a0a0;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -350,7 +349,7 @@ color: #fefefe;
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -362,15 +361,14 @@ font-family: 'Droid Sans';</string>
       <widget class="QLabel" name="welcome">
        <property name="geometry">
         <rect>
-         <x>440</x>
+         <x>420</x>
          <y>40</y>
          <width>281</width>
          <height>61</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">text-align: center;
-color: #393;
+        <string notr="true">color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -499,7 +497,7 @@ Color: #fefefe;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #101010;</string>
+       <string notr="true">background: #a0a0a0;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -586,7 +584,7 @@ font-family: 'Droid Sans';</string>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: left;
-color: #393;
+color: #101010;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
        </property>
@@ -605,7 +603,7 @@ font-family: 'Droid Sans';</string>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -627,7 +625,7 @@ font-family: 'Droid Sans';</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #101010;</string>
+       <string notr="true">background: #a0a0a0;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -665,7 +663,7 @@ Color: #fefefe;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -688,7 +686,7 @@ font-family: 'Droid Sans';</string>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -713,7 +711,7 @@ font-family: 'Droid Sans';</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #101010;</string>
+       <string notr="true">background: #a0a0a0;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -791,7 +789,7 @@ font-family: 'Droid Sans';</string>
          <widget class="QLabel" name="ksajfksaljf_2">
           <property name="styleSheet">
            <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -919,7 +917,7 @@ font-family: 'Droid Sans';</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #101010;</string>
+       <string notr="true">background: #a0a0a0;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -970,7 +968,7 @@ font-family: 'Droid Sans';</string>
          <widget class="QLabel" name="edit_test_title">
           <property name="styleSheet">
            <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -987,7 +985,7 @@ font-family: 'Droid Sans';</string>
          <widget class="QLabel" name="test_name">
           <property name="styleSheet">
            <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -1130,7 +1128,7 @@ Color: #fefefe;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #101010;</string>
+       <string notr="true">background: #a0a0a0;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -1149,7 +1147,7 @@ Color: #fefefe;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -1270,7 +1268,7 @@ Color: #fefefe;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #101010;</string>
+       <string notr="true">background: #a0a0a0;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -1321,7 +1319,7 @@ Color: #fefefe;</string>
          <widget class="QLabel" name="edit_question_header">
           <property name="styleSheet">
            <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -1338,7 +1336,7 @@ font-family: 'Droid Sans';</string>
          <widget class="QLabel" name="question_name">
           <property name="styleSheet">
            <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -1524,7 +1522,7 @@ font-family: 'Droid Sans';</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #101010;</string>
+       <string notr="true">background: #a0a0a0;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -1543,7 +1541,7 @@ font-family: 'Droid Sans';</string>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -1666,7 +1664,7 @@ padding: 10px;
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #101010;</string>
+       <string notr="true">background: #a0a0a0;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -1685,7 +1683,7 @@ padding: 10px;
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -1784,7 +1782,7 @@ Color: #fefefe;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
