@@ -564,7 +564,7 @@ Color: #fefefe;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 35px;
 font-family: 'Droid Sans';</string>
@@ -1004,7 +1004,7 @@ font-family: 'Droid Sans';</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>520</y>
+         <y>540</y>
          <width>801</width>
          <height>81</height>
         </rect>
@@ -1167,7 +1167,7 @@ font-family: 'Droid Sans';</string>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 15px;
 font-family: 'Droid Sans';</string>
@@ -1561,7 +1561,7 @@ font-family: 'Droid Sans';</string>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align: center;
-color: #393;
+color: #101010;
 margin: 0 auto;
 font-size: 15px;
 font-family: 'Droid Sans';</string>
@@ -1640,7 +1640,7 @@ Color: #fefefe;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background: #333;
-color: #393;
+color: white;
 font-size: 15px;
 font-family: 'Droid Sans';
 border-radius: 15px;
